@@ -1,12 +1,12 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.1.0",
   "info": {
     "title": "GPT Sheet Writer",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/【デプロイURL】/exec"
+      "url":"https://script.google.com/macros/s/AKfycbwxeH8ZduG67ALRG6B4TcG59EkuFOHyWxJQ217gleo9MTEu6o9liNW5al_x8XyKwQ/exec"
     }
   ],
   "paths": {
@@ -23,11 +23,13 @@
                 "properties": {
                   "sheetId": {
                     "type": "string",
-                    "description": "書き込むスプレッドシートのID"
+                    "description": "Google Sheets のスプレッドシートID"
                   },
                   "values": {
                     "type": "array",
-                    "items": { "type": "string" },
+                    "items": {
+                      "type": "string"
+                    },
                     "description": "行として追加する文字列の配列"
                   }
                 },
