@@ -1,0 +1,47 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "GPT Sheet Writer",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://script.google.com/macros/s/【デプロイURL】/exec"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "operationId": "appendToSheet",
+        "summary": "Google Sheets に行を追加",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sheetId": {
+                    "type": "string",
+                    "description": "書き込むスプレッドシートのID"
+                  },
+                  "values": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "行として追加する文字列の配列"
+                  }
+                },
+                "required": ["sheetId", "values"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "書き込み成功"
+          }
+        }
+      }
+    }
+  }
+}
